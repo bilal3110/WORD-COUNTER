@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="images/logo-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>WORDS COUNTER</title>
+</head>
+<style>
+    .counter-container {
+        max-width: 100%;
+        min-height: 95vh;
+        background-color: #1D1D1D;
+        padding: 60px;
+    }
+
+    .counter-container h1 {
+        text-align: center;
+        color: white;
+        font-family: Montserrat;
+        font-weight: 800;
+        font-size: 40px;
+    }
+
+    .box {
+        width: 50%;
+        height: 40%;
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        border: 1px solid white;
+        border-radius: 15px;
+        padding: 25px;
+        background-color: rgb(255, 255, 255);
+        font-family: montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1D1D1D;
+    }
+
+    #words {
+        text-align: center;
+        color: white;
+        font-family: Montserrat;
+        font-weight: 800;
+        font-size: 35px;
+        margin-top: 55vh;
+    }
+
+    #char {
+        text-align: center;
+        color: white;
+        font-family: Montserrat;
+        font-weight: 800;
+        font-size: 35px;
+    }
+</style>
+
+<body>
+    <div class="counter-container">
+        <h1>WORDS COUNTER</h1>
+        <textarea name="TextArea" id="box" cols="30" rows="10" class="box"></textarea>
+        <h1 id="words">WORDS WRITTEN: <span id="wrds"></span></h1>
+    </div>
+</body>
+
+<script>
+    var textInput = document.getElementById("box");
+    var wordCountElement = document.getElementById("wrds");
+
+    textInput.addEventListener("input", wordcount);
+
+    function wordcount() {
+        var txt = textInput.value;
+        var wordArray = txt.match(/\b\w+\b/g);
+        var wordCount = wordArray ? wordArray.length : 0;
+
+        if (wordCount === 0) {
+            wordCountElement.innerHTML = "0";
+        } else {
+            wordCountElement.textContent = wordCount;
+        }
+    }
+    
+</script>
+
+</html>
